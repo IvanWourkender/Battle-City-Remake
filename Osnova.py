@@ -8,10 +8,8 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Battle City - Finish Screen")
 clock = pygame.time.Clock()
 
-# Шрифти
 font_big = pygame.font.SysFont("Arial", 72, bold=True)
 
-# Константи
 TILE_SIZE = 40
 YELLOW, RED, WHITE = (255, 255, 0), (255, 0, 0), (255, 255, 255)
 BRICK_COLOR, BLACK, GREEN = (160, 40, 0), (0, 0, 0), (0, 255, 0)
@@ -141,7 +139,7 @@ while True:
         
         if player.shoot_delay > 0: player.shoot_delay -= 1
 
-        # Малюємо карту
+        # Прорісовка карти
         for r, row in enumerate(GAME_MAP):
             for c, tile in enumerate(row):
                 if tile == 1:
@@ -170,7 +168,7 @@ while True:
         if player.hp <= 0: game_status = "LOSE"
         if not enemies: game_status = "WIN"
 
-    # Екран фіналу
+    # Надпис в фіналі
     elif game_status == "WIN":
         draw_text("YOU WIN", YELLOW)
     elif game_status == "LOSE":
